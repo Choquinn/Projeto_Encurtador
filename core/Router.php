@@ -9,7 +9,7 @@ class Router
         $url = $_SERVER['REQUEST_URI'];
 
         switch ($url) {
-            case '/':
+            case '/index':
                 $controllerName = 'App\controllers\HomeController';
                 $actionName = 'index';
                 break;
@@ -21,7 +21,10 @@ class Router
                 $controllerName = 'App\controllers\AuthController';
                 $actionName = 'login';
                 break;
-             //Adicionar novas rotas aqui....
+            case '/home':
+                $controllerName = 'App\controllers\DashController';
+                $actionName = 'home';
+                break;
             default:
                 http_response_code(404);
                 echo "Página não encontrada!";

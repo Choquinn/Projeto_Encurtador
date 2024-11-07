@@ -11,18 +11,16 @@ class AuthController extends Controller
   public function register(){
 
     if($_SERVER['REQUEST_METHOD'] === "POST"){
-      $name = $_POST['name'];
       $username = $_POST['username'];
       $email = $_POST['email'];
       $password = $_POST['password'];
 
       $db = Database::connect();
 
-      $stm = $db->prepare("INSERT INTO users (name, username, email, password) VALUES (:name, :username, :email, :password)");
+      $stm = $db->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
       
       $hash_password = password_hash($password, PASSWORD_DEFAULT);
 
-      $stm->bindParam(":name", $name);
       $stm->bindParam(":username", $username);
       $stm->bindParam(":email", $email);
       
@@ -52,12 +50,11 @@ class AuthController extends Controller
       session_start();
 
       if($user && password_verify($password, $user['password'])){
-
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['name'] = $user['name'];
+        
+        $_POST['ipassword'] = "";
         $_SESSION['username'] = $user['username'];
 
-        $this->redirect('/dash');
+        $this->redirect('home/home');
 
       }
     }

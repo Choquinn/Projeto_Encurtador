@@ -1,5 +1,5 @@
 {
-  "name": "manolo/site_base",
+  "name": "choquinn/encurtador",
   "autoload": {
     "psr-4": {
       "App\\": "app/",
@@ -8,8 +8,8 @@
   },
   "authors": [
     {
-      "name": "Manoel Carvalho",
-      "email": "manoelmecat@gmail.com"
+      "name": "Paulo Henrique",
+      "email": "paulohpfreitas23@gmail.com"
     }
   ],
   "require": {}
