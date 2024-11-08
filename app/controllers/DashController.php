@@ -10,9 +10,7 @@ class DashController extends Controller
 {
 
     public function home(){
-
-
-        $this->view("home/home");
+        $this->view("index/index");
     }
 
     public function tweet() {

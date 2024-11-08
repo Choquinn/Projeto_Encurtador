@@ -50,11 +50,10 @@ class AuthController extends Controller
       session_start();
 
       if($user && password_verify($password, $user['password'])){
-        
-        $_POST['ipassword'] = "";
+      
         $_SESSION['username'] = $user['username'];
 
-        $this->redirect('home/home');
+        $this->redirect('index/');
 
       }
     }
